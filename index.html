@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./main.js" defer></script>
+    <title>Star Wars</title>
+  </head>
+  <body>
+    <template id="person-element">
+      <li class="person">
+        <h2 class="person-name"></h2>
+
+        <div class="person-details">
+          <p><strong>Height:</strong> <span class="person-height"></span></p>
+          <p><strong>Weight:</strong> <span class="person-mass"></span></p>
+          <p><strong>Gender:</strong> <span class="person-gender"></span></p>
+          <p>
+            <strong>Born In:</strong> <span class="person-birth-year"></span>
+          </p>
+          <p><strong>Skin:</strong> <span class="person-skin-color"></span></p>
+          <p><strong>Eyes:</strong> <span class="person-eye-color"></span></p>
+        </div>
+
+        <attr title="Learn more">
+          <h3 class="homeworld"></h3>
+        </attr>
+
+        <h3>Appearances:</h3>
+        <ul class="movies-list"></ul>
+      </li>
+    </template>
+
+    <template id="movie-details-template">
+      <div class="movie-details">
+        <h3 class="movie-title"></h3>
+        <p>
+          <strong>Directed By:</strong> <span class="movie-director"></span>
+        </p>
+        <p>
+          <strong>Produced By:</strong> <span class="movie-producer"></span>
+        </p>
+        <p>
+          <strong>Released On:</strong>
+          <span class="movie-release-date"></span>
+        </p>
+        <p>
+          <strong>Opening Crawl:</strong>
+          <span class="movie-opening-crawl"></span>
+        </p>
+      </div>
+    </template>
+
+    <template id="planet-details-template">
+      <div class="planet-details">
+        <h3 class="planet-name"></h3>
+        <p>
+          <strong>Rotation Period:</strong>
+          <span class="planet-rotation"></span>
+        </p>
+        <p>
+          <strong>Orbital Period:</strong> <span class="planet-orbital"></span>
+        </p>
+        <p><strong>Diameter:</strong> <span class="planet-diameter"></span></p>
+        <p><strong>Climate:</strong> <span class="planet-climate"></span></p>
+        <p><strong>Gravity:</strong> <span class="planet-gravity"></span></p>
+        <p><strong>Terrain:</strong> <span class="planet-terrain"></span></p>
+        <p>
+          <strong>Population:</strong> <span class="planet-population"></span>
+        </p>
+      </div>
+    </template>
+
+    <dialog id="info-modal" class="modal">
+      <div class="modal-content"></div>
+    </dialog>
+
+    <main>
+      <section class="people">
+        <h1>Star Wars People</h1>
+
+        <div class="loader hidden"></div>
+
+        <ul class="people-list"></ul>
+
+        <div class="pagination">
+          <button class="previous-page" disabled>Previous</button>
+          <button class="next-page" disabled>Next</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
