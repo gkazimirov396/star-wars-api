@@ -124,22 +124,27 @@ const createMovie = movie => {
 
   movieTitle.textContent = title;
 
-  movieElement.addEventListener('click', event => {
+  peopleListElement.addEventListener('click', event => {
     event.stopPropagation();
 
-    const content = document.importNode(
-      movieDetailsTemplate.content,
-      true
-    ).firstElementChild;
+    if (
+      event.target.matches('li') &&
+      event.target.classList.contains('movie')
+    ) {
+      const content = document.importNode(
+        movieDetailsTemplate.content,
+        true
+      ).firstElementChild;
 
-    content.querySelector('.movie-title').textContent = title;
-    content.querySelector('.movie-director').textContent = director;
-    content.querySelector('.movie-producer').textContent = producer;
-    content.querySelector('.movie-release-date').textContent = release_date;
-    content.querySelector('.movie-opening-crawl').textContent =
-      opening_crawl.replace(/\r\n/g, ' ');
+      content.querySelector('.movie-title').textContent = title;
+      content.querySelector('.movie-director').textContent = director;
+      content.querySelector('.movie-producer').textContent = producer;
+      content.querySelector('.movie-release-date').textContent = release_date;
+      content.querySelector('.movie-opening-crawl').textContent =
+        opening_crawl.replace(/\r\n/g, ' ');
 
-    openModal(content);
+      openModal(content);
+    }
   });
 
   movieTooltip.appendChild(movieTitle);
@@ -191,12 +196,17 @@ const createPerson = async person => {
   personHomeworld.textContent = `Homeworld: ${homeWorld.name}`;
   personGender.textContent = gender[0].toUpperCase() + gender.slice(1);
 
-  personHomeworld.addEventListener('click', event => {
+  peopleListElement.addEventListener('click', event => {
     event.stopPropagation();
 
-    const planetDetails = createHomeworldDetails(homeWorld);
+    if (
+      event.target.matches('h3') &&
+      event.target.classList.contains('homeworld')
+    ) {
+      const planetDetails = createHomeworldDetails(homeWorld);
 
-    openModal(planetDetails);
+      openModal(planetDetails);
+    }
   });
 
   movieData.forEach(movieEl => {
